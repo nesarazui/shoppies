@@ -14,6 +14,18 @@
 }
 
 .App-header {
+  background-color: goldenrod;
+  padding: 2.5%;
+  /* min-height: 10vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -35,4 +47,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.section-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+margin: 2%;
+position: center;
+
+}
+
+.custom-container-fluid{
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.custom-nominate-button{
+  background-color: yellow;
+}
+
+.custom-button{
+  margin-left: 10px;
+}
+
+.custom-button-color-nominate{
+  background-color:#ffcaad !important; 
+  border-color: #d9a250 !important; 
+}
+
+.custom-button-color-remove{
+  background-color:#ffd97a !important; 
+  border-color: #d9a250  !important; 
+}
+
+.custom-button-color-search{
+  background-color: #cfca00 !important; 
+  border-color: #cfca00 !important; 
 }
