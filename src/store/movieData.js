@@ -15,10 +15,8 @@ const getMovies = movies => {
 export const fetchingMovies = (movieTitle) => {
   return async dispatch => {
     try {
-      console.log('here', movieTitle)
       const {data} = await axios.get(`http://www.omdbapi.com/?s=${movieTitle}&apikey=6befe58e`)
       if (data.Response === "True"){
-      console.log('got OMDB data!', data)
         dispatch(getMovies(data))
       }
     } catch (error) {
@@ -35,9 +33,11 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case GET_MOVIES:
       let clone = {...state}
+      action.movies.Search.forEach((movieObj) => {
+        movieObj.disabled = false
+      })
       clone.movieData = action.movies.Search
       return clone
-      //return {...state, movieData: action.movies}
     default:
       return state
   }

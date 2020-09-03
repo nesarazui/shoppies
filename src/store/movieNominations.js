@@ -4,34 +4,19 @@ const REMOVE_MOVIE = 'REMOVE_MOVIE'
 
 
 //ACTION CREATOR
-export const nominateMovie = movie => {
+export const nominateMovie = movieObj => {
   return {
     type: NOMINATE_MOVIE,
-    movie
+    movieObj
   }
 }
 
-export const removeMovie = movie => {
+export const removeMovie = movieObj => {
 return {
   type: REMOVE_MOVIE,
-  movie
+  movieObj
 }
 }
-
-
-//THUNK
-// export const nominatingMovie = (movie) => {
-//   return async dispatch => {
-//     try {
-//       console.log('here', movieTitle)
-//       const {data} = await axios.get(`http://www.omdbapi.com/?s=${movieTitle}&apikey=6befe58e`)
-//       console.log('got OMDB data!', data)
-//       dispatch(nominateMovie(movie))
-//     } catch (error) {
-//       console.error(error)
-//     }
-//   }
-// }
 
 //INITIAL STATE
 const initialState = {movieNominations: []}
@@ -41,12 +26,14 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case NOMINATE_MOVIE:
         let clone = {...state};
-        clone.movieNominations = [...clone.movieNominations,action.movie]
+        action.movieObj.disabled = true
+        clone.movieNominations = [...clone.movieNominations, action.movieObj]
       return clone
     case REMOVE_MOVIE:
         let cloneToRemoveMovie = {...state}
-        let updatedArr = cloneToRemoveMovie.movieNominations.filter((movie) => {
-          if (action.movie === movie){
+        action.movieObj.disabled = false
+        let updatedArr = cloneToRemoveMovie.movieNominations.filter((movieObj) => {
+          if (action.movieObj.Title === movieObj.Title){
             return false
           } else {
             return true

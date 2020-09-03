@@ -7,33 +7,28 @@ class NominationList extends React.Component {
     constructor(props){
         super(props)
         this.removeFromNomination = this.removeFromNomination.bind(this)
-        this.nominationLimitAlert = this.nominationLimitAlert.bind(this)
     }
 
-    removeFromNomination(movie){
-        this.props.removeMovie(movie)
-    }
-
-    nominationLimitAlert (){
-
+    removeFromNomination(movieObj){
+        this.props.removeMovie(movieObj)
     }
 
     render(){
         const nominationList = this.props.nominatedMovies
             return(
-                <div className="custom-container-fluid">
+                <div className="custom-container-fluid container-size">
                     <h4 className="text-muted">Nominations</h4>
                     {
                         nominationList.length === 0? 
                         <ul className="list-group">
-                            <li className="list-group-item"><small className="text-muted"><em>No Movies Have Been Nominated</em></small></li>
+                            <li className="list-group-item"><small className="text-muted">No Movies Have Been Nominated</small></li>
                         </ul>
                         : 
                         <ul className="list-group">
                         {
-                        nominationList.map((movieName, idx) => {
+                        nominationList.map((movieObj, idx) => {
                             return (
-                                <SingleMovieNomination key={idx} movieName={movieName} removeFromNomination={this.removeFromNomination} />
+                                <SingleMovieNomination key={idx} movieObj={movieObj} removeFromNomination={this.removeFromNomination} />
                             )
                         })
                         }
@@ -54,7 +49,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
     return {
-        removeMovie: (movie) => dispatch(removeMovie(movie))
+        removeMovie: (movieObj) => dispatch(removeMovie(movieObj))
     }
 }
 export default connect(mapState, mapDispatch)(NominationList)

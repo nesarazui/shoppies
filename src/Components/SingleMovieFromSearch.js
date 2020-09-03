@@ -1,35 +1,57 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { nominateMovie } from '../store/movieNominations'
+import Toasts from './Toast'
 
 class SingleMovieFromSearch extends React.Component{
     constructor(props){
         super(props)
+        this.state={displayAlert: false}
         this.nominatingMovie = this.nominatingMovie.bind(this)
+        this.isDuplicate = this.isDuplicate.bind(this)
     }
 
-    nominatingMovie (movie) {
+    nominatingMovie (movieObj) {
         if (this.props.nominatedMovies.length === 5) {
-            alert('Can Not Nominated Any More Movies')
+            this.props.updateDisplayAlert()
         }
         else {
-            this.props.nominateMovie(movie)
-            // this.setState((state) => ({display: !state.display}))
+            this.props.nominateMovie(movieObj)
         }
+    }
+
+    isDuplicate (imdbID) {
+        let outcome;
+        if (!this.props.nominatedMovies) { //if array doesn't exist, nothing has been nominated
+            outcome = false 
+        } else {
+            this.props.nominatedMovies.forEach((movieObj) => {
+                if (movieObj.imdbID === imdbID && movieObj.disabled === true) {
+                    outcome = true
+                }
+
+                if ((movieObj.imdbID === imdbID && movieObj.disabled === false)){
+                    outcome = false
+                }
+            })
+        }
+        return outcome
     }
 
 
     render(){
         const title = this.props.title
         const year = this.props.year
+        const movieObj = this.props.movieObj
+
         return(
             <li className="list-group-item">
             <div className="row align-items-center">
-                <div className="col-12 col-md-8">
+                <div className="col-11">
                     <div className="align-right">{title} ({year})</div>
                 </div>
-                <div className="col-6 col-md-4">
-                    <button className="btn custom-button-color-nominate btn-sm"  disabled={this.props.nominatedMovies.includes(title)} onClick={() => this.nominatingMovie(title)}>Nominate</button> 
+                <div className="col-1">
+                    <button className="btn custom-button-color-nominate btn-sm"  disabled={this.isDuplicate(movieObj.imdbID)} onClick={() => this.nominatingMovie(movieObj)}><ion-icon name="add-outline"></ion-icon></button> 
                 </div>
             </div>
             </li>
@@ -40,7 +62,7 @@ class SingleMovieFromSearch extends React.Component{
 
 const mapDispatch = (dispatch) => {
     return {
-        nominateMovie: (movie) => dispatch(nominateMovie(movie))
+        nominateMovie: (movieObj) => dispatch(nominateMovie(movieObj))
     }
 }
 

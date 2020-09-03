@@ -81,8 +81,10 @@ position: center;
 }
 
 .custom-button-color-nominate{
-  background-color:#ffcaad !important; 
-  border-color: #d9a250 !important; 
+  /* background-color:#ffcaad !important;   */
+  background-color:#a5bf0f !important;
+  border-color: #a5bf0f !important; 
+  border: none;
 }
 
 .custom-button-color-remove{
@@ -91,6 +93,29 @@ position: center;
 }
 
 .custom-button-color-search{
-  background-color: #cfca00 !important; 
-  border-color: #cfca00 !important; 
+  background-color:#ffd97a !important; 
+  border-color: #d9a250  
+}
+
+.container-size{
+  width: 50%;
+}
+
+.custom-border-color{
+  border-color: #ced4da;
+}
+
+.custom-icon{
+  top: 10px;
+    position: relative;
+    left: 2px;
+    color: grey;
+}
+
+.clear-icon{
+  top: 5px;
+    position: relative;
+    left: 0px;
+    font-size: large;
+    color: grey;
 }
