@@ -60,6 +60,11 @@ position: center;
 
 }
 
+.align-items-center .col-2{
+  padding: 0px;
+  text-align: right;
+}
+
 .custom-container-fluid{
   width: 100%;
   padding-top: 15px;
@@ -81,15 +86,15 @@ position: center;
 }
 
 .custom-button-color-nominate{
-  /* background-color:#ffcaad !important;   */
   background-color:#a5bf0f !important;
   border-color: #a5bf0f !important; 
-  border: none;
 }
 
 .custom-button-color-remove{
   background-color:#ffd97a !important; 
   border-color: #d9a250  !important; 
+  border: none;
+  padding:0.25rem 1rem;
 }
 
 .custom-button-color-search{
