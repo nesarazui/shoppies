@@ -1,17 +1,14 @@
 import React from "react";
 import DisplayResults from "./DisplayResults";
-// import axios from 'axios'
 import { connect } from "react-redux";
 import { fetchingMovies } from "../store/movieData";
-import Toasts from "./Toast";
 
 class SearchMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", data: [], displayAlert: false };
+    this.state = { value: "", data: [] };
     this.handleChange = this.handleChange.bind(this);
     this.clear = this.clear.bind(this);
-    this.updateDisplayAlert = this.updateDisplayAlert.bind(this);
     this.updateWithMovieData = this.updateWithMovieData.bind(this);
   }
 
@@ -27,10 +24,6 @@ class SearchMovie extends React.Component {
     this.setState({ value: "", data: [] });
   }
 
-  updateDisplayAlert(show = true) {
-    this.setState((state) => ({ displayAlert: show }));
-  }
-
   updateWithMovieData() {
     this.setState((state, props) => ({
       data: [...state.data, this.props.movieData],
@@ -40,7 +33,6 @@ class SearchMovie extends React.Component {
   render() {
     return (
       <div className="custom-container-fluid container-size">
-        {this.state.displayAlert ? <Toasts updateDisplayAlert={this.updateDisplayAlert} /> : null}
         <div className="input-group mb-3 border rounded custom-border-color">
           <input
             className="form-control border border-white"
@@ -60,7 +52,7 @@ class SearchMovie extends React.Component {
           </div>
         </div>
         {this.state.data.length > 0 ? (
-          <DisplayResults updateDisplayAlert={this.updateDisplayAlert} />
+          <DisplayResults updateDisplayAlert={this.props.updateDisplayAlert} />
         ) : null}
       </div>
     );

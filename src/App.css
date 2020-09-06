@@ -49,78 +49,83 @@
   }
 }
 
-
-.section-container{
+.section-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-margin: 2%;
-position: center;
-
+  margin: 2%;
+  position: center;
 }
 
-.align-items-center .col-2{
+.align-items-center .col-2 {
   padding: 0px;
   text-align: right;
 }
 
-.custom-container-fluid{
+.custom-container-fluid {
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.custom-nominate-button{
+.custom-nominate-button {
   background-color: yellow;
 }
 
-.custom-button{
+.custom-button {
   margin-left: 10px;
 }
 
-.custom-button-color-nominate{
-  background-color:#a5bf0f !important;
-  border-color: #a5bf0f !important; 
+.custom-button-color-nominate {
+  background-color: #a5bf0f !important;
+  border-color: #a5bf0f !important;
 }
 
-.custom-button-color-remove{
-  background-color:#ffd97a !important; 
-  border-color: #d9a250  !important; 
+.custom-button-color-remove {
+  background-color: #ffd97a !important;
+  border-color: #d9a250 !important;
   border: none;
-  padding:0.25rem 1rem;
+  padding: 0.25rem 1rem;
 }
 
-.custom-button-color-search{
-  background-color:#ffd97a !important; 
-  border-color: #d9a250  
+.custom-button-color-search {
+  background-color: #ffd97a !important;
+  border-color: #d9a250;
 }
 
-.container-size{
+.container-size {
   width: 50%;
 }
 
-.custom-border-color{
+.custom-border-color {
   border-color: #ced4da;
 }
 
-.custom-icon{
+.custom-icon {
   top: 10px;
-    position: relative;
-    left: 2px;
-    color: grey;
+  position: relative;
+  left: 2px;
+  color: grey;
 }
 
-.clear-icon{
+.clear-icon {
   top: 5px;
-    position: relative;
-    left: 0px;
-    font-size: large;
-    color: grey;
+  position: relative;
+  left: 0px;
+  font-size: large;
+  color: grey;
+}
+
+.App .toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: #a5bf0f;
 }

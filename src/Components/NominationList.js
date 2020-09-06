@@ -9,6 +9,12 @@ class NominationList extends React.Component {
     this.removeFromNomination = this.removeFromNomination.bind(this);
   }
 
+  componentDidUpdate(){
+    if (this.props.nominatedMovies.length < 5){
+      this.props.updateDisplayAlert(false)
+    }
+  }
+
   removeFromNomination(movieObj) {
     
     this.props.removeMovie(movieObj);
