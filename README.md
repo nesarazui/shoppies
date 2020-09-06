@@ -1,4 +1,4 @@
-#The Shoppies
+# The Shoppies
 
 An application that allows a user to search for movies by title using the OMDB API. The search results dynamically change depending on what the user has typed into the search bar. 
 
@@ -9,7 +9,7 @@ Deployed: [link]
 Built with React, Redux, Bootstrap
 
 To Run Locally:
-1. Clone this repo: https://github.com/nesarazui/shoppies
+1. Clone [this](https://github.com/nesarazui/shoppies) repo
 2. Run `npm install`
 2. Run `npm run start`
 
