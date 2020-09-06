@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
         let cloneToRemoveMovie = {...state}
         action.movieObj.disabled = false
         let updatedArr = cloneToRemoveMovie.movieNominations.filter((movieObj) => {
-          if (action.movieObj.Title === movieObj.Title){
+          if (action.movieObj.imdbID === movieObj.imdbID){
             return false
           } else {
             return true
