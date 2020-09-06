@@ -4,7 +4,7 @@ An application that allows a user to search for movies by title using the OMDB A
 
 A user can add up to five movies to their nomination list, and has the option to remove any movie from the list. Once five movies have been added to the list an alert appears and any further nominations are disabled.
 
-Deployed: [link]
+Deployed: https://the-shoppies-nesara.herokuapp.com/
 
 Built with React, Redux, Bootstrap
 
