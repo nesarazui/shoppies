@@ -15,7 +15,7 @@ const getMovies = movies => {
 export const fetchingMovies = (movieTitle) => {
   return async dispatch => {
     try {
-      const {data} = await axios.get(`http://www.omdbapi.com/?s=${movieTitle}&apikey=6befe58e`)
+      const {data} = await axios.get(`https://www.omdbapi.com/?s=${movieTitle}&apikey=6befe58e`)
       if (data.Response === "True"){
         dispatch(getMovies(data))
       }
